@@ -1,33 +1,52 @@
 function adicionaAoPlacar() {
-    var tabelaPlacar = $(".placar").find("tbody");
+    var tabelaPlacar = $(".score-table").find("tbody");
     var jogador = "Thayná"
     var pontuacao = $("#contador-palavras").text();
-    var novaLinha = criaNovaLinha(jogador, pontuacao);
+    var newRow = createNewRow(jogador, pontuacao);
 
-    novaLinha.find(".botao-remover").click(removerLinha);
+    newRow.find(".remove-button").click(function() {
+        event.preventDefault();
+        let row = $(this).parent().parent();
+        row.fadeOut(800);
+        // Use for execute the delete just after the fade  out element was finished
+        setTimeout(function() {
+            row.remove();
+        }, 1000);
+    });
 
-    tabelaPlacar.prepend(novaLinha);
+    tabelaPlacar.prepend(newRow);
 
+    $(".score-table").slideDown(800);
+    // Go to score table with animation
+    createScrollAnimation();
 }
 
-function criaNovaLinha(jogador, pontuacao) {
-    let linha = $("<tr>");
+$("#score-button").click(function(event) {
+    // Stop is used for stop unfinished animations if a new one was throw
+    $(".score-table").stop().slideToggle(800);
+});
 
-    let colunaJogador = $("<td>").text(jogador);
-    let colunaPontuacao = $("<td>").text(pontuacao);
+var createNewRow = function(player, score) {
 
-    let colunaRemover = $("<td>");
-    let link = $("<a>").addClass("botao-remover").attr("href", "#");
-    let icone = $("<i>").addClass("small material-icons").text("delete");
+    let row = $("<tr>");
+    let playerColumn = $("<td>").text(player);
+    let scoreColumn = $("<td>").text(score);
 
-    linha.append(colunaJogador);
-    linha.append(colunaPontuacao);
-    linha.append(colunaRemover.append(link.append(icone)));
+    let deleteColumn = $("<td>");
+    let link = $("<a>").addClass("remove-button").attr("href", "#");
+    let icon = $("<i>").addClass("small material-icons").text("delete");
 
-    return linha;
-}
+    row.append(playerColumn);
+    row.append(scoreColumn);
+    row.append(deleteColumn.append(link.append(icon)));
 
-function removerLinha() {
-    event.preventDefault();
-    $(this).parent().parent().remove();
-}
+    return row;
+};
+
+function createScrollAnimation() {
+    var scoreTablePosition = $(".score-table").offset().top;
+
+    $("html, body").animate({
+        scrollTop: scoreTablePosition + "px"
+    }, 800);
+};

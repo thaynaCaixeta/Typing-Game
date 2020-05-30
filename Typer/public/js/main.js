@@ -1,7 +1,7 @@
 var tempoInicial = $("#tempo").text();
 var campo = $(".campo-digitacao");
 
-$(function () {
+$(function() {
     atualizaTamanhoFrase();
     iniciarContadores();
     iniciarCronometro();
@@ -16,7 +16,7 @@ function atualizaTamanhoFrase() {
 }
 
 function iniciarContadores() {
-    campo.on("input", function () {
+    campo.on("input", function() {
         var conteudo = campo.val();
         var tamConteudo = conteudo.length;
         var qtdPalavras = conteudo.split(/\s+/, '').length;
@@ -27,9 +27,9 @@ function iniciarContadores() {
 
 function iniciarCronometro() {
     var tempoRestante = tempoInicial;
-    campo.one("focus", function () {
+    campo.one("focus", function() {
         $("#botao-reiniciar").attr("disabled", true);
-        var cronometroId = setInterval(function () {
+        var cronometroId = setInterval(function() {
             tempoRestante--;
             $("#tempo").text(tempoRestante);
             if (tempoRestante < 1) {
@@ -45,7 +45,7 @@ function iniciarCronometro() {
 
 function inicializaMarcadores() {
     var frase = $(".frase").text();
-    campo.on("input", function () {
+    campo.on("input", function() {
         var digitado = campo.val();
         var comparavel = frase.substr(0, digitado.length);
         if (digitado == comparavel) {
@@ -59,12 +59,12 @@ function inicializaMarcadores() {
 }
 
 function adicionaAoPlacar() {
-    var tabelaPlacar = $(".placar").find("tbody");
+    var tabelaPlacar = $(".score-table").find("tbody");
     var jogador = "Thayná"
     var pontuacao = $("#contador-palavras").text();
     var novaLinha = criaNovaLinha(jogador, pontuacao);
 
-    novaLinha.find(".botao-remover").click(removerLinha);
+    novaLinha.find(".remove-button").click(removerLinha);
 
     tabelaPlacar.prepend(novaLinha);
 
@@ -77,7 +77,7 @@ function criaNovaLinha(jogador, pontuacao) {
     let colunaPontuacao = $("<td>").text(pontuacao);
 
     let colunaRemover = $("<td>");
-    let link = $("<a>").addClass("botao-remover").attr("href", "#");
+    let link = $("<a>").addClass("remove-button").attr("href", "#");
     let icone = $("<i>").addClass("small material-icons").text("delete");
 
     linha.append(colunaJogador);
