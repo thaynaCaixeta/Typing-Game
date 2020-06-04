@@ -1,33 +1,45 @@
-.campo-digitacao {
+.typing-area {
     font-size: 20px;
     height: 130px;
 }
 
-.campo-desativado {
+.disabled-field {
     background-color: lightgray;
 }
 
-.borda-vermelha {
+.red-border {
     border: 4px solid red;
 }
 
-.borda-verde {
+.green-border {
     border: 4px solid greenyellow;
 }
 
-.frase {
+.phrase {
     font-size: 20px;
     text-align: left;
 }
 
-.icones {
+.icons {
     vertical-align: middle;
 }
 
-.score-table {
+#phrase-id {
+    width: 40px;
+}
+
+.leaderboard {
     display: none;
 }
 
 body {
     overflow: scroll;
+}
+
+#spinner {
+    display: none;
+}
+
+#sync-button {
+    float: right;
 }
