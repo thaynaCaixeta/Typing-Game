@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Typer Game</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/libs/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/libs/selectize.default.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -45,6 +46,13 @@
                     class="material-icons">repeat_one</i></a>
             <input type="number" min="0" id="phrase-id">
 
+            <div class="select-users">
+                <select id="users">
+                    <option>Thayná</option>
+                    <option>Maria</option>
+                </select>
+            </div>
+
             <a id="sync-button" class="btn-floating btn-large waves-effect waves-light yellow"><i
                 class="material-icons">swap_vert</i></a>
         </div>
@@ -76,6 +84,7 @@
     <script src="js/leaderboard.js"></script>
     <script src="js/phrases.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/selectize.js"></script>
 </body>
 
 </html>

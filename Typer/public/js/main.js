@@ -8,16 +8,19 @@ $(function() {
     startChronometer();
     startMarkers();
     updateLeaderboard();
+    initiSelectize();
     $("#restart-button").click(restartGame);
+
+
 });
 
-function updatePhraseWordsNumber() {
+const updatePhraseWordsNumber = function() {
     var phrase = $(".phrase").text();
     var phraseWords = phrase.split(" ").length;
     $("#phrase-words").text(phraseWords);
 };
 
-function startCounters() {
+const startCounters = function() {
     typingArea.on("input", function() {
         let content = typingArea.val();
         var contentLength = content.length;
@@ -28,7 +31,7 @@ function startCounters() {
     });
 };
 
-function startChronometer() {
+const startChronometer = function() {
     typingArea.one("focus", function() {
         let timeLeft = initialTime;
         $("#restart-button").attr("disabled", true);
@@ -46,7 +49,7 @@ function startChronometer() {
     });
 };
 
-function startMarkers() {
+const startMarkers = function() {
     typingArea.on("input", function() {
         let phrase = $(".phrase").text();
         var typed = typingArea.val();
@@ -62,13 +65,13 @@ function startMarkers() {
     });
 };
 
-function endGame() {
+const endGame = function() {
     typingArea.removeClass("green-border");
     typingArea.removeClass("red-border");
     addToLeaderboard();
 };
 
-var restartGame = function() {
+const restartGame = function() {
     let typingArea = $(".typing-area")
     typingArea.attr("disabled", false);
     typingArea.val("");
@@ -84,7 +87,14 @@ var restartGame = function() {
     typingArea.removeClass("red-border");
 }
 
-var updateTimeLeft = function(time) {
+const updateTimeLeft = function(time) {
     initialTime = time;
     $("#time-counter").text(initialTime);
+};
+
+const initiSelectize = function() {
+    $("#users").selectize({
+        create: true,
+        sortField: 'text'
+    });
 };

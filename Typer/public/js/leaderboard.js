@@ -1,12 +1,12 @@
 function addToLeaderboard() {
-    var tabelaPlacar = $(".leaderboard").find("tbody");
-    var jogador = "Thayná"
-    var pontuacao = $("#words-counter").text();
-    var newRow = createNewRow(jogador, pontuacao);
+    let leaderboard = $(".leaderboard").find("tbody");
+    var player = $("#users").val();
+    var score = $("#words-counter").text();
+    var newRow = createNewRow(player, score);
 
     newRow.find(".remove-button").click(deleteRow);
 
-    tabelaPlacar.prepend(newRow);
+    leaderboard.prepend(newRow);
 
     $(".leaderboard").slideDown(800);
     // Go to score table with animation
