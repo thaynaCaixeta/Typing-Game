@@ -1,5 +1,5 @@
 # Typing-Game
- A simple project off a typing game using jQuery, Html5, and Material Design
+ A simple project off a typing game using jQuery, Html5, Material Design and Node.js
  
  Some of the jQuery plugins used were: 
  - Slick (https://kenwheeler.github.io/slick/)
