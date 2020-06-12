@@ -1,4 +1,8 @@
 # Typing-Game
- A simple typing game project using Jquery, Html5 and Material Design  
+ A simple project off a typing game using jQuery, Html5, and Material Design
  
- The project is based on a JQuery course available at www.alura.com.br
+ Some of the jQuery plugins used were: 
+ - Slick (https://kenwheeler.github.io/slick/)
+ - Selectize (https://github.com/selectize/selectize.js)
+ 
+ The project was based on a JQuery course available at www.alura.com.br
